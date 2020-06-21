@@ -11,7 +11,6 @@
 ._container
 {
 
-    background-color: rgb(30, 177, 30);
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
@@ -24,7 +23,6 @@
 
     width: 80%;
     height: 100%;
-    background-color: rgb(63, 30, 247);
     float: left;
 
 }
@@ -34,7 +32,6 @@
 
     width: 100%;
     height: 30%;
-    background-color: rgb(248, 7, 59);
 
 }
 
@@ -43,7 +40,6 @@
     
     width: 100%;
     height: 50%;
-    background-color: rgb(160, 7, 248);
     box-sizing: border-box;
     text-align: right;
     position: relative;
@@ -65,7 +61,6 @@
 
     width: 100%;
     height: 50%;
-    background-color: rgb(7, 140, 248);
     box-sizing: border-box;
     padding: 8px 15px 0px 0px;
     text-align: right;
@@ -83,10 +78,11 @@
 
     width: 20%;
     height: 100%;
-    background-color: rgb(247, 215, 30);
     box-sizing: border-box;
     padding: 5px 0px 0px 5px;
     float: right;
+    overflow-y: auto;
+    /* display: none; */
 
 }
 
@@ -98,7 +94,7 @@
     width: 80px;
     height: 4px;
     margin: -4px 0px 0px 0px;
-    background-color: rgb(34, 4, 167);
+    background-color: rgb(255, 8, 160);
 
 }
 
@@ -107,7 +103,6 @@
 
     width: 100%;
     height: 60%;
-    background-color: rgb(17, 9, 2);
     margin-top: 6.8%;
 
 }
@@ -117,9 +112,8 @@
 
     width: 100%;
     height: 16.66666%;
-    background-color: rgb(8, 187, 241);
+    background-color: rgba(8, 187, 241, 0);
     box-sizing: border-box;
-    /* border: 0.2px solid black; */
 
 }
 
@@ -128,11 +122,12 @@
 
     width: 25%;
     height: 100%;
-    background-color: rgba(21, 223, 14, 0.931);
+    background-color: rgba(255, 255, 255, 0.931);
     padding-top: 14px;
     font-size: 25px;
     align-items: center;
-    border: 2px solid black;
+    border-left: 0.1px solid rgb(0, 0, 0);
+    border-top: 0.1px solid rgb(0, 0, 0);
     box-sizing: border-box;
     float: left;
     text-align: center;
@@ -195,7 +190,8 @@
 {
 
     background-image: url(/Assets/Images/_result.svg);
-    background-size: 25px 25px;
+    background-size: 20px 20px;
+    background-color: rgb(14, 243, 148);
     background-position: center center;
     background-repeat: no-repeat;
 
@@ -231,15 +227,28 @@
 
 }
 
+#_mod
+{
+
+    border-top-left-radius: 80px;
+
+}
+
+._different_Color{
+
+    background-color: rgb(255, 8, 160) !important;
+
+}
+
 /* Toggle button */
 
 .switch 
 {
 
-    position: relative;
+    position: absolute;
     display: block;
-    top: -34px;
-    right: 5px;
+    top: 20px;
+    right: 42px;
     float: right;
     width: 60px;
     height: 34px;
@@ -313,11 +322,12 @@ input:checked + .slider:before
 ._ripple
 {
     position: absolute;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.712);
     border-radius: 50%;
-    width: 2px;
-    height: 2px;
+    width: 1px;
+    height: 1px;
     animation: _ripple_Effect .50s 1;
+    transition: 0.100s ease-in;
     opacity: 0;
     
 }
@@ -329,7 +339,7 @@ input:checked + .slider:before
     opacity: 0.8;
     }
     100% {
-    transform: scale(100);
+    transform: scale(150);
     opacity: 0;
     }
 }
