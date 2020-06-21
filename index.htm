@@ -2,23 +2,101 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 
+    <!-- Google font CDN stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Own css file -->
-    <link rel="stylesheet" href="/Assets/CSS/_style.css/">
+    <link rel="stylesheet" href="/Assets/CSS/_style.css">
 
     <!-- Favicon icon title bar -->
     <link rel="icon" href="/Assets/Images/_favicon.png">
 </head>
+
 <body>
-    
+
+    <!-- Main calculator container -->
+    <div class="_container">
+        <div class="_history">
+
+            <h1>History</h1>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+
+        </div>
+        <div class="_screen_And_Keys">
+
+            <div class="_screen">
+
+                <div id="_history_Screen"><span>10 + 9=</span></div>
+                <div id="_current_Screen"><span>10</span></div>
+
+            </div>
+
+            <div class="_key">
+
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">MOD</div>
+                    <div class="_key_Style _button_Animation">x!</div>
+                    <div class="_key_Style _button_Animation">C</div>
+                    <div class="_key_Style _button_Animation">BACKSP...</div>
+                </div>
 
 
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">1/x</div>
+                    <div class="_key_Style _button_Animation">x^2</div>
+                    <div class="_key_Style _button_Animation">Sqroot</div>
+                    <div class="_key_Style _button_Animation">/</div>
+                </div>
+
+
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">7</div>
+                    <div class="_key_Style _button_Animation">8</div>
+                    <div class="_key_Style _button_Animation">9</div>
+                    <div class="_key_Style _button_Animation">*</div>
+                </div>
+
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">4</div>
+                    <div class="_key_Style _button_Animation">5</div>
+                    <div class="_key_Style _button_Animation">6</div>
+                    <div class="_key_Style _button_Animation">-</div>
+                </div>
+
+
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">1</div>
+                    <div class="_key_Style _button_Animation">2</div>
+                    <div class="_key_Style _button_Animation">3</div>
+                    <div class="_key_Style _button_Animation">+</div>
+                </div>
+
+
+                <div class="_row">
+                    <div class="_key_Style _button_Animation">+/-</div>
+                    <div class="_key_Style _button_Animation">0</div>
+                    <div class="_key_Style _button_Animation">.</div>
+                    <div class="_key_Style _button_Animation">=</div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
     <!-- Own js file -->
     <script src="/Assets/JS/_app.js"></script>
 
 </body>
+
 </html>
