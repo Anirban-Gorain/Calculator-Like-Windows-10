@@ -35,3 +35,25 @@ window.onload = function ()
         }
     }
 }
+
+// History section visibility toggle.
+
+function _history_Hide()
+{
+    
+    const _history_Section = document.querySelector("#_history_Section");
+
+    if (_history_Section.style.display === "none")
+    {
+        
+        _history_Section.style.display = "block";
+
+    }
+    else
+    {
+
+        _history_Section.style.display = "none";
+
+    }
+
+}

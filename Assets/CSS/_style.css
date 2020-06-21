@@ -73,6 +73,7 @@
     font-size: 3.2rem;;
 
 }
+
 ._history
 {
 
@@ -82,7 +83,9 @@
     padding: 5px 0px 0px 5px;
     float: right;
     overflow-y: auto;
-    /* display: none; */
+    background-color: rgb(255, 217, 0);
+    -webkit-transition: .4s;
+    transition: .4s;
 
 }
 
