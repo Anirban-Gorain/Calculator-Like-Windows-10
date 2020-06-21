@@ -129,7 +129,8 @@
     width: 25%;
     height: 100%;
     background-color: rgba(21, 223, 14, 0.931);
-    font-size: 3rem;
+    padding-top: 14px;
+    font-size: 25px;
     align-items: center;
     border: 2px solid black;
     box-sizing: border-box;
@@ -137,6 +138,96 @@
     text-align: center;
     overflow: hidden;
     position: relative;
+
+}
+
+#_backspace
+{
+
+    background-image: url(/Assets/Images/_backspace.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_addition
+{
+
+    background-image: url(/Assets/Images/_addition.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_division
+{
+
+    background-image: url(/Assets/Images/_division.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_multiplication
+{
+
+    background-image: url(/Assets/Images/_multiplication.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_subtraction
+{
+
+    background-image: url(/Assets/Images/_subtraction.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_result
+{
+
+    background-image: url(/Assets/Images/_result.svg);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_factorial
+{
+
+    background-image: url(/Assets/Images/_factorial.png);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_x_Square
+{
+
+    background-image: url(/Assets/Images/_x_Square.png);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+#_square_Root
+{
+
+    background-image: url(/Assets/Images/square-root.png);
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
 
 }
 
@@ -215,4 +306,30 @@ input:checked + .slider:before
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 
+}
+
+/* Button animation */
+
+._ripple
+{
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    animation: _ripple_Effect .50s 1;
+    opacity: 0;
+    
+}
+  
+@keyframes _ripple_Effect 
+{
+    0% {
+    transform: scale(1);
+    opacity: 0.8;
+    }
+    100% {
+    transform: scale(100);
+    opacity: 0;
+    }
 }
