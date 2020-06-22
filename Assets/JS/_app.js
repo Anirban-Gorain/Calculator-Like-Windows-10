@@ -351,3 +351,31 @@ function _clear_Screen()
     _store_Expressions = _current_Screen;
 
 }
+
+// Backspace functionality
+
+function _backspace()
+{   
+
+    _store_Expressions.pop();
+
+    _current_Screen.innerHTML = "";
+    _current_Screen.append(_store_Expressions.join(""));
+
+    if(_store_Expressions.length == 0)
+    {
+
+        _current_Screen.innerHTML = "0";
+
+    }
+
+}
+
+const _backspace_Key = document.querySelector("#_backspace");
+
+_backspace_Key.addEventListener("click", function ()
+{
+
+    _backspace();
+
+});
