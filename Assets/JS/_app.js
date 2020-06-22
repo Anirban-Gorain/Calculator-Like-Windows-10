@@ -330,3 +330,24 @@ document.addEventListener("keydown", function (_event)
     }
 
 });
+
+// Clear functionality.
+
+const _clear = document.querySelector("#_clear");
+
+_clear.addEventListener("click", function ()
+{
+
+    _clear_Screen();
+    
+});
+
+function _clear_Screen()
+{
+
+    _current_Screen.innerText = "0";
+    _history_Screen.innerText = "";
+
+    _store_Expressions = _current_Screen;
+
+}
