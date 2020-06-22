@@ -57,3 +57,276 @@ function _history_Hide()
     }
 
 }
+
+// When user will click to the buttons, The appropriate character will be appear on the decorated screen.
+
+let _store_Expressions = [];
+
+const _key_Style = document.querySelectorAll("._key_Style");
+const _current_Screen = document.querySelector("#_current_Screen span");
+const _history_Screen = document.querySelector("#_history_Screen span");
+
+// This function will append data to the current screen.
+
+function _inserter(_which_Key)
+{
+   
+    _store_Expressions = _current_Screen.innerHTML;
+
+    // The current screen number length can't be grater by 16.
+    if (_store_Expressions.length < 16)
+    {
+        
+        if (_store_Expressions.length == 1 && _store_Expressions[0] == "0")
+        {
+            
+            _current_Screen.innerHTML = "";
+            _store_Expressions = [];
+
+        }
+
+        _current_Screen.append(_which_Key);
+        
+         // Assign which value currently appended.
+        
+        
+
+        
+
+    }
+
+    let _current_Screen_Text = _current_Screen.innerText;
+    _store_Expressions = _current_Screen_Text.split("");
+
+}
+
+// One
+
+const _one = document.querySelector("#_one");
+
+_one.addEventListener("click",  function ()
+{
+ 
+    _inserter(1);
+
+});
+
+// Two
+
+const _two = document.querySelector("#_two");
+
+_two.addEventListener("click",  function ()
+{
+ 
+    _inserter(2);
+
+});
+
+// Three
+
+const _three = document.querySelector("#_three");
+
+_three.addEventListener("click",  function ()
+{
+ 
+    _inserter(3);
+
+});
+
+// Four
+
+const _four = document.querySelector("#_four");
+
+_four.addEventListener("click",  function ()
+{
+ 
+    _inserter(4);
+
+});
+
+// Five
+
+const _five = document.querySelector("#_five");
+
+_five.addEventListener("click",  function ()
+{
+ 
+    _inserter(5);
+
+});
+
+// Six
+
+const _six = document.querySelector("#_six");
+
+_six.addEventListener("click",  function ()
+{
+ 
+    _inserter(6);
+
+});
+
+// Seven
+
+const _seven = document.querySelector("#_seven");
+
+_seven.addEventListener("click",  function ()
+{
+ 
+    _inserter(7);
+
+});
+
+// Eight
+
+const _eight = document.querySelector("#_eight");
+
+_eight.addEventListener("click",  function ()
+{
+ 
+    _inserter(8);
+
+});
+
+// Nine
+
+const _nine = document.querySelector("#_nine");
+
+_nine.addEventListener("click",  function ()
+{
+ 
+    _inserter(9);
+
+});
+
+// Zero
+
+const _zero = document.querySelector("#_zero");
+
+_zero.addEventListener("click",  function ()
+{
+ 
+    _inserter(0);
+
+});
+
+// Now, When the user will press keys from the keyboard the should be working the calculator, So for this will be this code.
+
+document.addEventListener("keydown", function (_event)
+{
+   
+    // console.log(_event.key);
+    switch (_event.key)
+    {
+        
+        case '1':
+
+            _inserter(1);
+
+            break;
+
+        case '2':
+
+            _inserter(2);
+
+            break;
+
+        case '3':
+
+            _inserter(3);
+
+            break;
+
+        case '4':
+
+            _inserter(4);
+
+            break;
+
+        case '5':
+
+            _inserter(5);
+
+            break;
+
+        case '6':
+
+            _inserter(6);
+
+            break;
+
+        case '7':
+
+            _inserter(7);
+
+            break;
+
+        case '8':
+
+            _inserter(8);
+
+            break;
+
+        case '9':
+
+            _inserter(9);
+
+            break;
+
+        case '0':
+
+            _inserter(0);
+
+            break;
+
+        case '.':
+
+            console.log('.');
+
+            break;
+
+        case "Enter":
+
+            console.log('Enter');
+
+            break;
+
+        case '+':
+
+            console.log('+');
+
+            break;
+
+        case '-':
+
+            console.log('-');
+
+            break;
+
+        case '*':
+
+            console.log('*');
+
+            break;
+
+        case '/':
+
+            console.log('/');
+
+            break;
+
+        case 'Backspace':
+
+            _backspace();
+
+            break;
+
+        case 'c':
+
+            _clear_Screen();
+
+            break;
+
+    }
+
+});
