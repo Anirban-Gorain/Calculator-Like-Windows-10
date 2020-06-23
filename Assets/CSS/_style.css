@@ -3,8 +3,8 @@
 
     padding: 0px;
     margin: 0px;
-    font-family: 'Roboto', sans-serif;
     user-select: none;
+    font-family: 'Roboto', sans-serif;
 
 }
 
@@ -38,12 +38,12 @@
 #_history_Screen
 {
     
-    width: 100%;
-    height: 50%;
-    box-sizing: border-box;
-    text-align: right;
     position: relative;
     overflow-x: auto;
+    width: 100%;
+    height: 50%;
+    text-align: right;
+    box-sizing: border-box;
     
 }
 
@@ -51,9 +51,9 @@
 {
     
     position: absolute;
-    padding-right: 15px;
-    bottom: 0; 
+    bottom: 0;
     right: 0;
+    padding-right: 15px;
     
 }
 
@@ -62,10 +62,10 @@
 
     width: 100%;
     height: 50%;
+    overflow-x: auto;
     box-sizing: border-box;
     padding: 8px 15px 0px 0px;
     text-align: right;
-    overflow-x: auto;
     
 }
 
@@ -81,11 +81,10 @@
 
     width: 20%;
     height: 100%;
+    overflow-y: auto;
     box-sizing: border-box;
     padding: 5px 0px 0px 5px;
     float: right;
-    overflow-y: auto;
-    background-color: rgb(255, 217, 0);
     -webkit-transition: .4s;
     transition: .4s;
 
@@ -117,7 +116,6 @@
 
     width: 100%;
     height: 16.66666%;
-    background-color: rgba(8, 187, 241, 0);
     box-sizing: border-box;
 
 }
@@ -125,19 +123,22 @@
 ._key ._row ._key_Style
 {
 
+    position: relative;
+    float: left;
     width: 25%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.931);
-    padding-top: 14px;
-    font-size: 25px;
-    align-items: center;
-    border-left: 0.1px solid rgb(0, 0, 0);
-    border-top: 0.1px solid rgb(0, 0, 0);
     box-sizing: border-box;
-    float: left;
+    border-top: 0.1px solid rgba(0, 0, 0, 0.37);
+    border-left: 0.1px solid rgba(0, 0, 0, 0.37);
+    padding-top: 20px;
+    font-size: 18px;
+    align-items: center;
     text-align: center;
     overflow: hidden;
-    position: relative;
+    background-size: 18px 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
 
 }
 
@@ -145,19 +146,13 @@
 {
 
     background-image: url(/Assets/Images/_backspace.svg);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
-
+    
 }
 
 #_addition
 {
 
     background-image: url(/Assets/Images/_addition.svg);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -165,9 +160,6 @@
 {
 
     background-image: url(/Assets/Images/_division.svg);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -175,9 +167,6 @@
 {
 
     background-image: url(/Assets/Images/_multiplication.svg);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -185,9 +174,6 @@
 {
 
     background-image: url(/Assets/Images/_subtraction.svg);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -195,10 +181,7 @@
 {
 
     background-image: url(/Assets/Images/_result.svg);
-    background-size: 20px 20px;
-    background-color: rgb(14, 243, 148);
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-color: rgb(243, 14, 121);
 
 }
 
@@ -206,9 +189,6 @@
 {
 
     background-image: url(/Assets/Images/_factorial.png);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -216,9 +196,6 @@
 {
 
     background-image: url(/Assets/Images/_x_Square.png);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -226,9 +203,6 @@
 {
 
     background-image: url(/Assets/Images/square-root.png);
-    background-size: 25px 25px;
-    background-position: center center;
-    background-repeat: no-repeat;
 
 }
 
@@ -241,7 +215,7 @@
 
 ._different_Color{
 
-    background-color: rgb(255, 8, 160) !important;
+    background-color: rgb(178, 171, 179) !important;
 
 }
 
@@ -250,11 +224,11 @@
 .switch 
 {
 
+    float: right;
     position: absolute;
     display: block;
     top: 20px;
     right: 42px;
-    float: right;
     width: 60px;
     height: 34px;
 
@@ -339,13 +313,19 @@ input:checked + .slider:before
   
 @keyframes _ripple_Effect 
 {
-    0% {
-    transform: scale(1);
-    opacity: 0.8;
+    0%
+    {
+
+        transform: scale(1);
+        opacity: 0.8;
+
     }
-    100% {
-    transform: scale(150);
-    opacity: 0;
+    100%
+    {
+
+        transform: scale(150);
+        opacity: 0;
+
     }
 }
 
@@ -360,42 +340,11 @@ input:checked + .slider:before
         padding: 0px;
 
     }
-
-    #_current_Screen span {
-
-        font-size: 2rem;
-
-    }
-
+    
     ._history h1
     {
 
         font-size: large;
-
-    }
-    ._history h1::after
-    {
-
-
-    width: 35px;
-    height: 4px;
-    margin: 0;
-
-    }
-    ._key ._row ._key_Style
-    {
-
-    padding-top: 18px;
-    font-size: 16px;
-    border-top: 0.1px solid rgba(0, 0, 0, 0.349);
-    position: relative;
-    
-    }
-
-    ._different_Color
-    {
-    
-    background-size: 15px 15px !important;
 
     }
 
@@ -409,10 +358,19 @@ input:checked + .slider:before
 
     }
 
-    #_mod
+    #_current_Screen span {
+
+        font-size: 2rem;
+
+    }
+
+    ._history h1::after
     {
 
-        border-top-left-radius: 15px;
+
+    width: 35px;
+    height: 4px;
+    margin: 0;
 
     }
 
@@ -424,6 +382,19 @@ input:checked + .slider:before
 
     }
     
+    #_mod
+    {
+
+        border-top-left-radius: 15px;
+
+    }
+
+    ._different_Color
+    {
+    
+    background-size: 15px 15px !important;
+
+    }
 
 }
 
@@ -436,51 +407,12 @@ input:checked + .slider:before
         padding: 0px;
 
     }
-
-    #_current_Screen span {
-
-        font-size: 2rem;
-
-    }
-
-    ._history
-    {
-
-        background-color: rgb(245, 20, 20);
-
-    }
-
+    
     ._history h1
     {
-
+        
         font-size: 1.5rem;
-
-    }
-
-    ._history h1::after
-    {
-
-
-        width: 35px;
-        height: 4px;
-        margin: 0;
-
-    }
-    ._key ._row ._key_Style
-    {
-
-        padding-top: 18px;
-        font-size: 16px;
-        border-top: 0.1px solid rgba(0, 0, 0, 0.349);
-        position: relative;
-    
-    }
-
-    ._different_Color
-    {
-    
-        background-size: 15px 15px !important;
-
+        
     }
 
     .switch 
@@ -493,11 +425,20 @@ input:checked + .slider:before
 
     }
 
-    #_mod
+    #_current_Screen span {
+
+        font-size: 2rem;
+
+    }
+
+
+    ._history h1::after
     {
 
-        border-top-left-radius: 15px;
-
+        width: 35px;
+        height: 4px;
+        margin: 0;
+        
     }
 
     ._key
@@ -505,6 +446,21 @@ input:checked + .slider:before
 
         height: 68%;
         margin-top: 12.3px;
+
+    }
+    
+    ._different_Color
+    {
+    
+        background-size: 15px 15px !important;
+
+    }
+
+
+    #_mod
+    {
+
+        border-top-left-radius: 15px;
 
     }
 

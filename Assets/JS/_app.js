@@ -100,10 +100,6 @@ function _inserter(_which_Key)
         
          // Assign which value currently appended.
         
-        
-
-        
-
     }
 
     let _current_Screen_Text = _current_Screen.innerText;
