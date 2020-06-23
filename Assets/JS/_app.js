@@ -362,7 +362,7 @@ function _backspace()
     _current_Screen.innerHTML = "";
     _current_Screen.append(_store_Expressions.join(""));
 
-    if(_store_Expressions.length == 0)
+    if((_store_Expressions.length == 0) || (_store_Expressions.length == 1 && _store_Expressions[0] == '-'))
     {
 
         _current_Screen.innerHTML = "0";
@@ -377,5 +377,39 @@ _backspace_Key.addEventListener("click", function ()
 {
 
     _backspace();
+
+});
+
+// Plus or minus value
+
+const _plus_Minus = document.querySelector("#_plus_Minus");
+
+_plus_Minus.addEventListener("click", function ()
+{
+
+    let _current_Screen_Text = _current_Screen.innerText;
+    _store_Expressions = _current_Screen_Text.split("");
+
+    if(!(_store_Expressions.length == 1 && _store_Expressions[0] == '0'))
+    {
+
+        if (_store_Expressions[0] == '-')
+        {
+            
+            _store_Expressions.splice(0, 1);
+            _current_Screen.innerText = "";
+            _current_Screen.innerText = _store_Expressions.join("");
+
+        }
+        else
+        {
+
+            _store_Expressions.unshift('-');
+            _current_Screen.innerText = "";
+            _current_Screen.innerText = _store_Expressions.join("");
+
+        }
+
+    }
 
 });
