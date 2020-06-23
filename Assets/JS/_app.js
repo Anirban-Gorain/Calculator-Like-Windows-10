@@ -61,6 +61,7 @@ function _history_Hide()
 // When user will click to the buttons, The appropriate character will be appear on the decorated screen.
 
 let _store_Expressions = [];
+let _store_Answer = 0;
 
 const _key_Style = document.querySelectorAll("._key_Style");
 const _current_Screen = document.querySelector("#_current_Screen span");
@@ -70,10 +71,20 @@ const _history_Screen = document.querySelector("#_history_Screen span");
 
 function _inserter(_which_Key)
 {
-   
+
     _store_Expressions = _current_Screen.innerHTML;
+    _history_Screen.innerText = "Ans = " + _store_Answer;
+    
+    if (Number(_store_Expressions) === _store_Answer)
+    {
+    
+        _store_Expressions = [];
+        _current_Screen.innerHTML = "";
+
+    }
 
     // The current screen number length can't be grater by 16.
+    
     if (_store_Expressions.length < 16)
     {
         
@@ -281,7 +292,7 @@ document.addEventListener("keydown", function (_event)
 
         case '.':
 
-            console.log('.');
+            _decimal_Point();
 
             break;
 
@@ -413,3 +424,62 @@ _plus_Minus.addEventListener("click", function ()
     }
 
 });
+
+// Decimal point.
+
+const _dot = document.querySelector("#_dot");
+
+_dot.addEventListener("click", function ()
+{
+
+    _decimal_Point();
+
+});
+
+function _decimal_Point()
+{
+
+    if (!(_store_Expressions.includes('.', 1)))
+    {
+        
+        let _current_Screen_Text = _current_Screen.innerText;
+        _store_Expressions = _current_Screen_Text.split("");
+
+        _store_Expressions.push('.');
+        _current_Screen.innerText = _store_Expressions.join("");
+
+    }
+
+}
+
+// Factorial.
+
+const _factorial_Button = document.querySelector("#_factorial")
+
+_factorial_Button.addEventListener("click", function ()
+{
+
+    _factorial();
+
+})
+
+function _factorial()
+{
+    
+    let _current_Screen_Number = Math.round(Number(_current_Screen.innerText));
+    let _store_Factorial = 1;
+
+    for (let _stop = 1; _stop <= _current_Screen_Number; _stop++)
+    {
+        
+        _store_Factorial *= _stop;
+        
+    }
+
+    // Printing the result.
+
+    _current_Screen.innerText = _store_Factorial;
+    _history_Screen.innerText = _current_Screen_Number + "! =";
+    _store_Answer = _store_Factorial;
+
+}
