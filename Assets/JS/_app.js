@@ -479,3 +479,27 @@ function _factorial()
     _store_Answer = _store_Factorial;
 
 }
+
+// Square root.
+
+let _square_Root_Button = document.querySelector("#_square_Root");
+
+_square_Root_Button.addEventListener("click", function ()
+{
+ 
+    _square_Root();
+
+});
+
+function _square_Root()
+{
+
+    let _current_Screen_Number = Number(_current_Screen.innerText);
+
+    // Printing the result.
+
+    _current_Screen.innerText = Math.sqrt(_current_Screen_Number);
+    _history_Screen.innerText = '√' + _current_Screen_Number + " =";
+    _store_Answer = Math.sqrt(_current_Screen_Number);
+
+}
