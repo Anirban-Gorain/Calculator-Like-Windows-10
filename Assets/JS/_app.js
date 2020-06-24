@@ -455,7 +455,7 @@ function _decimal_Point()
 {
 
     _history_Screen.innerText = "Ans = " + _store_Answer;
-    
+
     if (_can_Currently_Generated_Any_Result == true)
     {
 
@@ -494,6 +494,17 @@ function _factorial()
 {
     
     let _current_Screen_Number = Math.round(Number(_current_Screen.innerText));
+    let _can_Data_Minus;
+
+    if (_current_Screen_Number < 0)
+    {
+    
+        _current_Screen_Number *= -1;
+        _can_Data_Minus = true;
+
+
+    }
+
     let _store_Factorial = 1;
 
     for (let _stop = 1; _stop <= _current_Screen_Number; _stop++)
@@ -504,6 +515,9 @@ function _factorial()
     }
 
     // Printing the result.
+
+    if(_can_Data_Minus == true)
+    _store_Factorial *= -1
 
     _current_Screen.innerText = _store_Factorial;
     _history_Screen.innerText = _current_Screen_Number + "! =";
