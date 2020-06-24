@@ -62,6 +62,7 @@ function _history_Hide()
 
 let _store_Expressions = [];
 let _store_Answer = 0;
+let _can_Currently_Generated_Any_Result = false;
 
 const _key_Style = document.querySelectorAll("._key_Style");
 const _current_Screen = document.querySelector("#_current_Screen span");
@@ -72,16 +73,20 @@ const _history_Screen = document.querySelector("#_history_Screen span");
 function _inserter(_which_Key)
 {
 
-    _store_Expressions = _current_Screen.innerHTML;
-    _history_Screen.innerText = "Ans = " + _store_Answer;
-    
-    if (Number(_store_Expressions) === _store_Answer)
-    {
-    
-        _store_Expressions = [];
-        _current_Screen.innerHTML = "";
+    let _current_Screen_Text = _current_Screen.innerText;
+    _store_Expressions = _current_Screen_Text.split("");
 
-    }
+    _history_Screen.innerText = "Ans = " + _store_Answer;
+
+    if (_can_Currently_Generated_Any_Result == true)
+    {
+
+        _current_Screen.innerText = "";
+        _store_Expressions = [];
+
+        _can_Currently_Generated_Any_Result = false;
+        
+    }      
 
     // The current screen number length can't be grater by 16.
     
@@ -98,11 +103,12 @@ function _inserter(_which_Key)
 
         _current_Screen.append(_which_Key);
         
-         // Assign which value currently appended.
         
     }
+    
+    // Assign which value currently appended.
 
-    let _current_Screen_Text = _current_Screen.innerText;
+    _current_Screen_Text = _current_Screen.innerText;
     _store_Expressions = _current_Screen_Text.split("");
 
 }
@@ -354,6 +360,7 @@ function _clear_Screen()
 
     _current_Screen.innerText = "0";
     _history_Screen.innerText = "";
+    _store_Answer = 0;
 
     _store_Expressions = _current_Screen;
 
@@ -364,8 +371,20 @@ function _clear_Screen()
 function _backspace()
 {   
 
+
+    if (_can_Currently_Generated_Any_Result == true)
+    {
+
+        _current_Screen.innerText = "";
+        _store_Expressions = [];
+
+        _can_Currently_Generated_Any_Result = false;
+        
+    }  
+
     _store_Expressions.pop();
 
+    _history_Screen.innerText = "Ans = " + _store_Answer;
     _current_Screen.innerHTML = "";
     _current_Screen.append(_store_Expressions.join(""));
 
@@ -435,7 +454,19 @@ _dot.addEventListener("click", function ()
 function _decimal_Point()
 {
 
-    if (!(_store_Expressions.includes('.', 1)))
+    _history_Screen.innerText = "Ans = " + _store_Answer;
+    
+    if (_can_Currently_Generated_Any_Result == true)
+    {
+
+        _current_Screen.innerText = "";
+        _store_Expressions = [];
+
+        _can_Currently_Generated_Any_Result = false;
+        
+    }
+
+    if (!(_store_Expressions.includes('.', 0)))
     {
         
         let _current_Screen_Text = _current_Screen.innerText;
@@ -477,6 +508,7 @@ function _factorial()
     _current_Screen.innerText = _store_Factorial;
     _history_Screen.innerText = _current_Screen_Number + "! =";
     _store_Answer = _store_Factorial;
+    _can_Currently_Generated_Any_Result = true;
 
 }
 
@@ -501,5 +533,6 @@ function _square_Root()
     _current_Screen.innerText = Math.sqrt(_current_Screen_Number);
     _history_Screen.innerText = '√' + _current_Screen_Number + " =";
     _store_Answer = Math.sqrt(_current_Screen_Number);
+    _can_Currently_Generated_Any_Result = true;
 
 }
