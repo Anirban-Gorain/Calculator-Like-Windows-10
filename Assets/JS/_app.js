@@ -518,7 +518,7 @@ function _factorial()
 
     if(_can_Data_Minus == true)
     _store_Factorial *= -1
-
+    
     _current_Screen.innerText = _store_Factorial;
     _history_Screen.innerText = _current_Screen_Number + "! =";
     _store_Answer = _store_Factorial;
@@ -544,9 +544,39 @@ function _square_Root()
 
     // Printing the result.
 
-    _current_Screen.innerText = Math.sqrt(_current_Screen_Number);
+    let _result = Math.sqrt(_current_Screen_Number);
+
+    if(Number.isNaN(_result))
+    _current_Screen.innerText = "Invalid input";
+    else
+    _current_Screen.innerText = _result;
+
+
     _history_Screen.innerText = '√' + _current_Screen_Number + " =";
-    _store_Answer = Math.sqrt(_current_Screen_Number);
+    _store_Answer = _result;
     _can_Currently_Generated_Any_Result = true;
 
+}
+
+// X square.
+
+const _x_Square_Button = document.querySelector("#_x_Square");
+
+_x_Square_Button.addEventListener("click", function ()
+{
+
+    _x_Square();
+        
+});
+
+function _x_Square()
+{
+
+    let _current_Screen_Number = Math.round(Number(_current_Screen.innerText));
+
+    _current_Screen.innerText = _current_Screen_Number * _current_Screen_Number;
+    _history_Screen.innerText = _current_Screen_Number + "^2 =";
+    _store_Answer =  _current_Screen_Number * _current_Screen_Number;
+    _can_Currently_Generated_Any_Result = true;
+    
 }
