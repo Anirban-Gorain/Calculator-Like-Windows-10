@@ -518,10 +518,26 @@ function _factorial()
 
     if(_can_Data_Minus == true)
     _store_Factorial *= -1
-    
-    _current_Screen.innerText = _store_Factorial;
-    _history_Screen.innerText = _current_Screen_Number + "! =";
-    _store_Answer = _store_Factorial;
+
+    // Printing the result.
+
+    if(Number.isNaN(_current_Screen_Number))
+    {
+
+        _current_Screen.innerText = "Invalid input";
+        _history_Screen.innerText = "Invalid input!" + " =";
+        _store_Answer =  "Invalid input";
+
+    }
+    else
+    {
+
+        _current_Screen.innerText = _store_Factorial;
+        _history_Screen.innerText = _store_Factorial + "! =";
+        _store_Answer =  _store_Factorial;
+
+    }
+
     _can_Currently_Generated_Any_Result = true;
 
 }
@@ -547,13 +563,23 @@ function _square_Root()
     let _result = Math.sqrt(_current_Screen_Number);
 
     if(Number.isNaN(_result))
-    _current_Screen.innerText = "Invalid input";
+    {
+
+        _current_Screen.innerText = "Invalid input";
+        _history_Screen.innerText = '√' + "Invalid input" + " =";
+        _store_Answer =  "Invalid input";
+
+    }
     else
-    _current_Screen.innerText = _result;
+    {
+
+        _current_Screen.innerText = _result;
+        _history_Screen.innerText = '√' + _current_Screen_Number + " =";
+        _store_Answer =  _result;
+
+    }
 
 
-    _history_Screen.innerText = '√' + _current_Screen_Number + " =";
-    _store_Answer = _result;
     _can_Currently_Generated_Any_Result = true;
 
 }
@@ -574,9 +600,25 @@ function _x_Square()
 
     let _current_Screen_Number = Math.round(Number(_current_Screen.innerText));
 
-    _current_Screen.innerText = _current_Screen_Number * _current_Screen_Number;
-    _history_Screen.innerText = _current_Screen_Number + "^2 =";
-    _store_Answer =  _current_Screen_Number * _current_Screen_Number;
+    let _result = _current_Screen_Number * _current_Screen_Number;
+
+    if(Number.isNaN(_result))
+    {
+
+        _current_Screen.innerText = "Invalid input";
+        _history_Screen.innerHTML = "Invalid input" + "<sup>2</sup>" +" =";
+        _store_Answer =  "Invalid input";
+
+    }
+    else
+    {
+
+        _current_Screen.innerText = _result;
+        _history_Screen.innerHTML = _current_Screen_Number + "<sup>2</sup> =";
+        _store_Answer =  _result;
+
+    }
+
     _can_Currently_Generated_Any_Result = true;
     
 }
