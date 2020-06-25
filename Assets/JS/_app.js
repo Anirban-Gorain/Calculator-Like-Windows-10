@@ -622,3 +622,42 @@ function _x_Square()
     _can_Currently_Generated_Any_Result = true;
     
 }
+
+// 1 By x
+
+const _1_By_Button = document.querySelector("#_1_By");
+
+_1_By_Button.addEventListener("click", function ()
+{
+
+    _one_By();
+        
+});
+
+function _one_By()
+{
+
+    let _current_Screen_Number = Number(_current_Screen.innerText);
+
+    let _result = 1/_current_Screen_Number;
+
+    if(Number.isNaN(_result) || !Number.isFinite(_result))
+    {
+
+        _current_Screen.innerText = "Invalid input";
+        _history_Screen.innerHTML = "1/Invalid input" +" =";
+        _store_Answer =  "Invalid input";
+
+    }
+    else
+    {
+
+        _current_Screen.innerText = _result;
+        _history_Screen.innerHTML = `1/${_current_Screen_Number} =`;
+        _store_Answer =  _result;
+
+    }
+
+    _can_Currently_Generated_Any_Result = true;
+    
+}
