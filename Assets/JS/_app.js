@@ -306,25 +306,25 @@ document.addEventListener("keydown", function (_event)
 
         case '+':
 
-            console.log('+');
+            _expression_Handler("_addition");
 
             break;
 
         case '-':
 
-            console.log('-');
+            _expression_Handler("_subtraction");
 
             break;
 
         case '*':
 
-            console.log('*');
+            _expression_Handler("_multiplication");
 
             break;
 
         case '/':
 
-            console.log('/');
+            _expression_Handler("_division");
 
             break;
 
@@ -660,4 +660,93 @@ function _one_By()
 
     _can_Currently_Generated_Any_Result = true;
     
+}
+
+// Expression handler
+const _addition = document.querySelector("#_addition");
+const _subtraction = document.querySelector("#_subtraction");
+const _multiplication = document.querySelector("#_multiplication");
+const _division = document.querySelector("#_division");
+
+const _general_Expression_Array = ["#_addition", "#_subtraction", "#_multiplication", "#_division"];
+
+// Adding click event in to all the id's which are contain by _general_Expression_Array;
+
+for(let _index = 0, _store_Elements; _index < _general_Expression_Array.length; _index++)
+{
+
+    _store_Elements = document.querySelector(`${_general_Expression_Array[_index]}`);
+
+    _store_Elements.addEventListener("click", function ()
+    {
+       
+        _expression_Handler(this.id);
+        // console.log(this.id);
+        
+
+    });
+
+}
+
+function _expression_Handler(id)
+{
+
+    _symbols = ['+', '-', '×', '÷'];
+    _store_Expressions = _current_Screen.innerText.split("");
+    let _length = _store_Expressions.length - 1;
+
+    if(_length + 1 < 15)
+    {
+
+        for(let _index = 0; _index < 4; _index++)
+        {
+    
+            // console.log(_store_Expressions.includes(_symbols[_index]), _symbols[_index]);
+            if (_store_Expressions.includes(_symbols[_index], _length))
+            {
+    
+                let _capture = _symbols[_index];
+                _store_Expressions.splice(_store_Expressions.indexOf(_capture, _length), 1);
+    
+    
+                break;
+                
+            }
+    
+        }
+    
+        switch (id)
+        {
+            case "_addition":
+    
+                _store_Expressions.push(_symbols[0]);
+                
+            break;
+        
+            case "_subtraction":
+                
+                _store_Expressions.push(_symbols[1]);
+                
+                break;
+                
+            case "_multiplication":
+                    
+                    _store_Expressions.push(_symbols[2]);
+                    
+                    break;
+                    
+            case "_division":
+    
+                _store_Expressions.push(_symbols[3]);
+                
+            break;
+            
+        }
+    
+        _current_Screen.innerText = _store_Expressions.join("");
+        _can_Currently_Generated_Any_Result = false;
+
+    }
+
+
 }
