@@ -668,7 +668,7 @@ const _subtraction = document.querySelector("#_subtraction");
 const _multiplication = document.querySelector("#_multiplication");
 const _division = document.querySelector("#_division");
 
-const _general_Expression_Array = ["#_addition", "#_subtraction", "#_multiplication", "#_division"];
+const _general_Expression_Array = ["#_addition", "#_subtraction", "#_multiplication", "#_division", "#_mod"];
 
 // Adding click event in to all the id's which are contain by _general_Expression_Array;
 
@@ -691,14 +691,14 @@ for(let _index = 0, _store_Elements; _index < _general_Expression_Array.length; 
 function _expression_Handler(id)
 {
 
-    _symbols = ['+', '-', '×', '÷'];
+    _symbols = ['+', '-', '×', '÷', '%'];
     _store_Expressions = _current_Screen.innerText.split("");
     let _length = _store_Expressions.length - 1;
 
     if(_length + 1 < 15)
     {
 
-        for(let _index = 0; _index < 4; _index++)
+        for(let _index = 0; _index < 5; _index++)
         {
     
             // console.log(_store_Expressions.includes(_symbols[_index]), _symbols[_index]);
@@ -721,7 +721,7 @@ function _expression_Handler(id)
     
                 _store_Expressions.push(_symbols[0]);
                 
-            break;
+                break;
         
             case "_subtraction":
                 
@@ -731,15 +731,21 @@ function _expression_Handler(id)
                 
             case "_multiplication":
                     
-                    _store_Expressions.push(_symbols[2]);
+                _store_Expressions.push(_symbols[2]);
                     
-                    break;
+                break;
                     
             case "_division":
     
                 _store_Expressions.push(_symbols[3]);
                 
-            break;
+                break;
+
+            case "_mod":
+
+                _store_Expressions.push(_symbols[4]);
+
+                break;
             
         }
     
