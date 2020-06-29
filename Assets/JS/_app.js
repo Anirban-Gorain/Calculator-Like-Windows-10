@@ -380,7 +380,13 @@ function _backspace()
 
         _can_Currently_Generated_Any_Result = false;
         
-    }  
+    }
+    else if (_can_Currently_Generated_Any_Result == "_history_Case")
+    {
+
+        _store_Expressions = _current_Screen.innerText.split("");
+        
+    }
 
     _store_Expressions.pop();
 
@@ -804,7 +810,7 @@ function _expression_Evaluator()
                 */
 
                 _have_Or_Not = (!(_store_Expressions.includes('N') || _store_Expressions.includes('I') || _store_Expressions.includes('i')) && isFinite(Number(_store_Expressions[_length]))) ? true: false;
-                console.log(_have_Or_Not, _store_Expressions);
+                // console.log(_have_Or_Not, _store_Expressions);
 
                 if(_have_Or_Not == false)
                 {
@@ -840,5 +846,90 @@ function _expression_Evaluator()
     _store_Answer =  _evaluate_Result;
 
     _can_Currently_Generated_Any_Result = true;
+
+    // Adding history.
+
+    _history_Manager();
+
+}
+
+// History section
+
+const _history_Items = document.querySelector("#_history_Items");
+
+function _history_Manager()
+{
+
+    const _all = document.querySelector("#_all");
+    const _only_Result = document.querySelector("#_only_Result");
+    // const _only_Expression = document.querySelector("#_only_Expression");
+
+    // Creating element.
+
+    let _each_History_Container = document.createElement("div");
+    let _expression_Copy_History = document.createElement("div");
+    let _result_For_History = document.createElement("div");
+
+    // Settings class names.
+
+    _each_History_Container.setAttribute("class", "_each_History_Container");
+    _expression_Copy_History.setAttribute("class", "_expression_Copy_History");
+    _result_For_History.setAttribute("class", "_result_For_History");
+
+    // Appending all the created elements in theirs appropriate position.
+
+    _each_History_Container.append(_expression_Copy_History);
+    _each_History_Container.append(_result_For_History);
+    _history_Items.append(_each_History_Container);
+
+    // Adding event to load on the calculator.
+
+    let _all_History_Container =  document.querySelectorAll("._each_History_Container");
+
+    for(let _index = 0; _index < _all_History_Container.length; ++_index)
+    {
+
+        _all_History_Container[_index].addEventListener("click", function (_event)
+        {
+
+            _event.stopImmediatePropagation();
+            let _specific_Element = _all_History_Container[_index];
+            
+            if (_all.checked)
+            {
+                
+                _history_Screen.innerText = _specific_Element.childNodes[0].innerText;
+                _current_Screen.innerText = _specific_Element.childNodes[1].innerText;
+                
+            }
+            else if (_only_Result.checked)
+            {
+
+                _history_Screen.innerText = "";
+                _current_Screen.innerText = _specific_Element.childNodes[1].innerText;
+                
+            }
+            else
+            {
+
+                let _temporary = _specific_Element.childNodes[0].innerText.split("");
+                _temporary.pop();
+                _temporary.pop();
+
+                _current_Screen.innerText = _temporary.join("");
+
+                _can_Currently_Generated_Any_Result = "_history_Case";
+
+            }
+            
+            
+        });
+        
+    }
+
+    // Assigning the vale according to the appropriate radio button values.
+
+    _expression_Copy_History.innerText = _store_Expressions.join("") + " =";
+    _result_For_History.innerText = _store_Answer;
 
 }
