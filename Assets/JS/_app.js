@@ -300,7 +300,7 @@ document.addEventListener("keydown", function (_event)
 
         case "Enter":
 
-            console.log('Enter');
+            _expression_Evaluator();
 
             break;
 
@@ -691,10 +691,11 @@ for(let _index = 0, _store_Elements; _index < _general_Expression_Array.length; 
 function _expression_Handler(id)
 {
 
-    _symbols = ['+', '-', '×', '÷', '%'];
+    _symbols = ['+', '-', '*', '/', '%'];
     _store_Expressions = _current_Screen.innerText.split("");
     let _length = _store_Expressions.length - 1;
 
+    if(_store_Expressions.join("").toString().search("Invalid input") < 0)
     if(_length + 1 < 15)
     {
 
@@ -754,5 +755,90 @@ function _expression_Handler(id)
 
     }
 
+
+}
+
+// Expression evaluator.
+
+const _result = document.querySelector("#_result");
+
+_result.addEventListener("click", function ()
+{
+
+    // To update the value of _store_Expression.
+
+    _store_Expressions = _current_Screen.innerText.split("");
+
+    if(!(_store_Expressions[0] == 0 && _store_Expressions.length == 1))
+    _expression_Evaluator();
+    
+});
+
+function _expression_Evaluator()
+{
+
+    // All possible operators.
+    
+    _symbols = ['+', '-', '*', '/', '%'];
+
+    // Check current's screen data is an expression or a Character's number only.
+
+    {
+
+        let _have_Or_Not;
+
+        for(let _index = 0; _index < 5; _index++)
+        {
+
+            if (_store_Expressions.includes(_symbols[_index]))
+            {
+                
+                let _length = _store_Expressions.length - 1;
+
+                /*
+
+                    Checking the expression right or not, How? 1+2+3+ this expression is wrong because the last value is missing
+                    So the downward Ternary operator will check at the last have a number or sign only if number == true, if
+                    not == false.
+
+                */
+
+                _have_Or_Not = (!(_store_Expressions.includes('N') || _store_Expressions.includes('I') || _store_Expressions.includes('i')) && isFinite(Number(_store_Expressions[_length]))) ? true: false;
+                console.log(_have_Or_Not, _store_Expressions);
+
+                if(_have_Or_Not == false)
+                {
+
+                    _current_Screen.innerText = "Invalid input";
+                    _history_Screen.innerHTML = `${_store_Expressions.join("")} =`;
+                    _store_Answer =  "Invalid input";
+                    _can_Currently_Generated_Any_Result = true;
+
+                    return -1;
+
+                }
+
+            }
+            
+
+        }
+    }
+
+    
+    // Convert the expression into a string.
+
+    let _string_Expression = _store_Expressions.join("").toString();
+
+    // Evaluate the value of expressions.
+
+    let _evaluate_Result = eval(_string_Expression);
+
+    // Printing sections.
+
+    _current_Screen.innerText = _evaluate_Result;
+    _history_Screen.innerHTML = `${_string_Expression} =`;
+    _store_Answer =  _evaluate_Result;
+
+    _can_Currently_Generated_Any_Result = true;
 
 }
