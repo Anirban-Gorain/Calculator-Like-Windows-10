@@ -112,6 +112,81 @@
 
 }
 
+/* History items */
+
+#_history_Section::-webkit-scrollbar
+{
+
+    width: 8px;
+    
+}
+
+#_history_Section::-webkit-scrollbar-track
+{
+    
+    background-color: #ebebeb;
+    -webkit-border-radius: 50%;
+    border-radius: 10px;
+    
+}
+
+#_history_Section::-webkit-scrollbar-thumb
+{
+
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d7a; 
+
+}
+
+#_history_Section:hover::-webkit-scrollbar-thumb
+{
+
+    background: #6d6d6d; 
+
+}
+
+._each_History_Container
+{
+
+    width: 98%;
+    height: 70px;
+    margin: 2.5px 1% 0px 1%;
+    padding: 5px;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    
+}
+
+._each_History_Container:hover
+{
+
+    background-color: rgb(219, 219, 219);
+
+}
+._each_History_Container ._expression_Copy_History
+{
+    
+    text-align: right;
+
+}
+
+._each_History_Container ._result_For_History
+{
+
+    
+    text-align: right;
+    margin-top: 1px;
+    margin-right: 8px;
+    font-family: 'Anton', sans-serif;
+    font-size: xx-large;
+
+
+}
+
 ._key
 {
 
@@ -359,17 +434,79 @@ input:checked + .slider:before
 
     }
     
+    ._screen_And_Keys
+    {
+
+        width: 100%;
+        height: 86%;
+
+    }
+
+    #_history_Section
+    {
+
+        position: absolute;
+        white-space: nowrap;
+        height: 22%;
+        width: 100%;
+        float: none;
+
+    }
+
+    #_history_Items
+    {
+
+        width: 100%;
+        overflow-x: auto;
+
+    }
+
+    ._each_History_Container
+    {
+
+        width: auto;
+        height: 70px;
+        text-align: left;
+        display: inline-block;
+        white-space: nowrap;
+        
+    }
+
+    ._each_History_Container ._expression_Copy_History
+    {
+
+        text-align: left;
+
+    }
+
+    ._each_History_Container ._result_For_History
+    {
+
+        text-align: left;
+
+    }
+
+    ._choice_Container
+    {
+
+        width: 90%;
+        margin-left: 5px;
+        overflow-x: auto;
+
+    }
+
     ._history h1
     {
 
         font-size: large;
+        display: none;
 
     }
 
     .switch 
     {
 
-        display: block;
+        display: none;
         top: 2px;
         left: 2px;
         z-index: 1;
@@ -382,13 +519,34 @@ input:checked + .slider:before
 
     }
 
+    ._screen
+    {
+
+        margin-top: 122px;
+        height: 96px;
+
+    }
+
+    #_current_Screen {
+
+        height: 40%;
+        padding: 0px 15px 0px 0px;
+
+    }
+
+    #_history_Screen {
+
+        height: 19%;
+       
+    }
+
     ._history h1::after
     {
 
 
-    width: 35px;
-    height: 4px;
-    margin: 0;
+        width: 35px;
+        height: 4px;
+        margin: 0;
 
     }
 
@@ -396,8 +554,15 @@ input:checked + .slider:before
     {
 
         height: 68%;
-        margin-top: 12.6px;
+        margin-top: 0px;
 
+    }
+
+    ._key ._row ._key_Style
+    {
+       
+        padding-top: 14px;
+        
     }
     
     #_mod
@@ -423,6 +588,7 @@ input:checked + .slider:before
     {
 
         padding: 0px;
+        overflow-y: hidden;
 
     }
     
@@ -459,6 +625,16 @@ input:checked + .slider:before
         
     }
 
+    ._choice_Container
+    {
+
+        width: 90%;
+        margin-left: 5px;
+        overflow-x: auto;
+        white-space: nowrap;
+
+    }
+
     ._key
     {
 
@@ -481,80 +657,5 @@ input:checked + .slider:before
         border-top-left-radius: 15px;
 
     }
-
-}
-
-/* History items */
-
-#_history_Section::-webkit-scrollbar
-{
-
-    width: 8px;
-    
-}
-
-#_history_Section::-webkit-scrollbar-track
-{
-    
-    background-color: #ebebeb;
-    -webkit-border-radius: 50%;
-    border-radius: 10px;
-    
-}
-
-#_history_Section::-webkit-scrollbar-thumb
-{
-
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #6d6d6d7a; 
-
-}
-
-#_history_Section:hover::-webkit-scrollbar-thumb
-{
-
-    background: #6d6d6d; 
-
-}
-
-._each_History_Container
-{
-
-    width: 98%;
-    height: 70px;
-    margin: 2.5px 1% 0px 1%;
-    padding: 5px;
-    overflow: auto;
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    
-}
-
-._each_History_Container:hover
-{
-
-    background-color: rgb(219, 219, 219);
-
-}
-._each_History_Container ._expression_Copy_History
-{
-    
-    text-align: right;
-
-}
-
-._each_History_Container ._result_For_History
-{
-
-    
-    text-align: right;
-    margin-top: 1px;
-    margin-right: 8px;
-    font-family: 'Anton', sans-serif;
-    font-size: xx-large;
-
 
 }
