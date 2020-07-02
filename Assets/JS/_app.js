@@ -545,6 +545,7 @@ function _factorial()
     }
 
     _can_Currently_Generated_Any_Result = true;
+    _history_Manager();
 
 }
 
@@ -587,6 +588,7 @@ function _square_Root()
 
 
     _can_Currently_Generated_Any_Result = true;
+    _history_Manager();
 
 }
 
@@ -626,6 +628,7 @@ function _x_Square()
     }
 
     _can_Currently_Generated_Any_Result = true;
+    _history_Manager(false, `${_current_Screen_Number}*${_current_Screen_Number}`);
     
 }
 
@@ -665,6 +668,7 @@ function _one_By()
     }
 
     _can_Currently_Generated_Any_Result = true;
+    _history_Manager(false, `1/${_current_Screen_Number}`);
     
 }
 
@@ -697,7 +701,7 @@ for(let _index = 0, _store_Elements; _index < _general_Expression_Array.length; 
 function _expression_Handler(id)
 {
 
-    _symbols = ['+', '-', '*', '/', '%'];
+    _symbols = ['+', '-', '*', '/', '%', '^'];
     _store_Expressions = _current_Screen.innerText.split("");
     let _length = _store_Expressions.length - 1;
 
@@ -785,7 +789,7 @@ function _expression_Evaluator()
 
     // All possible operators.
     
-    _symbols = ['+', '-', '*', '/', '%'];
+    _symbols = ['+', '-', '*', '/', '%', '^'];
 
     // Check current's screen data is an expression or a Character's number only.
 
@@ -857,7 +861,7 @@ function _expression_Evaluator()
 
 const _history_Items = document.querySelector("#_history_Items");
 
-function _history_Manager()
+function _history_Manager(_permission = true, _data)
 {
 
     const _all = document.querySelector("#_all");
@@ -929,7 +933,19 @@ function _history_Manager()
 
     // Assigning the vale according to the appropriate radio button values.
 
-    _expression_Copy_History.innerText = _store_Expressions.join("") + " =";
-    _result_For_History.innerText = _store_Answer;
+    if(_permission == true)
+    {
+
+        _expression_Copy_History.innerText = _store_Expressions.join("") + " =";
+        _result_For_History.innerText = _store_Answer;
+
+    }
+    else
+    {
+
+        _expression_Copy_History.innerText = _data + " =";
+        _result_For_History.innerText = _store_Answer;
+
+    }
 
 }
