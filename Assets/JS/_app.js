@@ -472,7 +472,29 @@ function _decimal_Point()
         
     }
 
-    if (!(_store_Expressions.includes('.', 0)))
+    let _index_For_Search = 0;
+    _store_Expressions = _current_Screen.innerText.split("");
+
+    for(let _index = _store_Expressions.length - 1; _index != -1; _index--)
+    {
+
+        if
+        (
+
+            _store_Expressions[_index] == '+' || _store_Expressions[_index] == '-' || _store_Expressions[_index] == '/'
+            || _store_Expressions[_index] == '*' || _store_Expressions[_index] == '%' || _store_Expressions[_index] == '^'
+
+        )
+        {
+
+            _index_For_Search = _index;
+            break;
+
+        }
+
+    }
+
+    if (!(_store_Expressions.includes('.', _index_For_Search)))
     {
         
         let _current_Screen_Text = _current_Screen.innerText;
